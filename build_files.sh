@@ -1,9 +1,12 @@
 #!/bin/bash
-# Install npm dependencies
-npm install
+# Install Python dependencies
+pip install -r requirements.txt
 
-# Run Tailwind CSS build if needed
-npx tailwindcss build theme/static/src/input.css -o theme/static/css/output.css --minify
+# Install Tailwind CSS dependencies
+python manage.py tailwind install
 
-# Collect static files
+# Build Tailwind CSS
+python manage.py tailwind build
+
+# Collect static files for Django
 python manage.py collectstatic --noinput
